@@ -1,6 +1,7 @@
 defmodule Exgithub.Github.Client do
   use Tesla
   alias Exgithub.Error
+  alias Exgithub.Github.Response
   alias Tesla.Env
 
   @base_url "https://api.github.com/users/"
@@ -22,6 +23,10 @@ defmodule Exgithub.Github.Client do
   end
 
   defp handle_get({:ok, %Env{status: 200, body: body}}) do
-    {:ok, body}
+    {:ok, parse_response_fields(body)}
+  end
+
+  defp parse_response_fields(repos) do
+    Enum.map(repos, fn repo -> Response.build(repo) end)
   end
 end
