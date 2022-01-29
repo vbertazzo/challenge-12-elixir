@@ -1,9 +1,5 @@
 defmodule Exgithub do
-  @moduledoc """
-  Exgithub keeps the contexts that define your domain
-  and business logic.
+  alias Exgithub.Users.Get, as: UserGet
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate get_user(username), to: UserGet, as: :call
 end

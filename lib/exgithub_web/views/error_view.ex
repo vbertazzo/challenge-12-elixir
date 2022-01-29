@@ -7,6 +7,10 @@ defmodule ExgithubWeb.ErrorView do
   #   %{errors: %{detail: "Internal Server Error"}}
   # end
 
+  def render("error.json", %{result: result}) do
+    %{message: result}
+  end
+
   # By default, Phoenix returns the status message from
   # the template name. For example, "404.json" becomes
   # "Not Found".

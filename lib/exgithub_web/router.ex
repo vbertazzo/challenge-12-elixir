@@ -7,6 +7,8 @@ defmodule ExgithubWeb.Router do
 
   scope "/api", ExgithubWeb do
     pipe_through :api
+
+    get "/users/:username", UsersController, :show
   end
 
   # Enables LiveDashboard only for development

@@ -1,5 +1,7 @@
 import Config
 
+config :exgithub, Exgithub.Users.Get, github_adapter: Exgithub.Github.ClientMock
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :exgithub, ExgithubWeb.Endpoint,
@@ -8,8 +10,7 @@ config :exgithub, ExgithubWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :exgithub, Exgithub.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :exgithub, Exgithub.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
