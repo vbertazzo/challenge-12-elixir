@@ -1,5 +1,6 @@
 defmodule ExgithubWeb.Router do
   use ExgithubWeb, :router
+  alias ExgithubWeb.Plugs.TokenRefresher
 
   pipeline :api do
     plug :accepts, ["json"]
@@ -7,6 +8,7 @@ defmodule ExgithubWeb.Router do
 
   pipeline :auth do
     plug ExgithubWeb.Auth.Pipeline
+    plug TokenRefresher
   end
 
   scope "/api", ExgithubWeb do

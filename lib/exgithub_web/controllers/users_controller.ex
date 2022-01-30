@@ -9,7 +9,7 @@ defmodule ExgithubWeb.UsersController do
     with {:ok, user_repos} <- Exgithub.get_user_repos(username) do
       conn
       |> put_status(:ok)
-      |> render("user.json", user_repos: user_repos)
+      |> render("user.json", user_repos: user_repos, token: conn.private[:refreshed_token])
     end
   end
 
