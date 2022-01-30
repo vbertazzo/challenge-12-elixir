@@ -9,4 +9,6 @@ defmodule ExgithubWeb.UsersView do
       user: user
     }
   end
+
+  def render("login.json", %{token: token}), do: %{token: token}
 end

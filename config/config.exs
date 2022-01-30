@@ -17,6 +17,10 @@ config :exgithub, ExgithubWeb.Auth.Guardian,
   issuer: "exgithub",
   secret_key: "d2VLv5OIFrtChuF/q6534J7BDKwn+FF/JnjD+AKeISX/F2IZ3zK+4H30s94r3h9z"
 
+config :exgithub, ExgithubWeb.Auth.Pipeline,
+  module: ExgithubWeb.Auth.Guardian,
+  error_handler: ExgithubWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :exgithub, ExgithubWeb.Endpoint,
   url: [host: "localhost"],

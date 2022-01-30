@@ -1,9 +1,9 @@
 defmodule ExgithubWeb.Auth.Guardian do
-  use Guardian, otp_app: :my_app
+  use Guardian, otp_app: :exgithub
   alias Exgithub.{Error, User}
   alias Exgithub.Users.Get, as: UserGet
 
-  def subject_for_token(%{id: id}, _claims), do: {:ok, id}
+  def subject_for_token(%User{id: id}, _claims), do: {:ok, id}
 
   def resource_from_claims(%{"sub" => id}) do
     UserGet.by_id(id)
@@ -15,8 +15,8 @@ defmodule ExgithubWeb.Auth.Guardian do
          {:ok, token, _claims} <- encode_and_sign(user) do
       {:ok, token}
     else
-      error -> error
       false -> {:error, Error.build(:unauthorized, "Please verify your credentials")}
+      error -> error
     end
   end
 
