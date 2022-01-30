@@ -9,6 +9,7 @@ defmodule ExgithubWeb.Router do
     pipe_through :api
 
     get "/users/:username", UsersController, :show
+    post "/users", UsersController, :create
   end
 
   # Enables LiveDashboard only for development

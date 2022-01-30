@@ -9,6 +9,8 @@ import Config
 
 config :exgithub, ecto_repos: [Exgithub.Repo]
 
+config :exgithub, Exgithub.Repo, migration_primary_key: [type: :binary_id]
+
 config :exgithub, Exgithub.Users.Get, github_adapter: Exgithub.Github.Client
 
 # Configures the endpoint
