@@ -35,6 +35,8 @@ defmodule Exgithub.MixProject do
     [
       {:phoenix, "~> 1.6.6"},
       {:phoenix_live_dashboard, "~> 0.6"},
+      {:ecto_sql, "~> 3.0"},
+      {:postgrex, ">= 0.0.0"},
       {:esbuild, "~> 0.3", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.3"},
       {:telemetry_metrics, "~> 0.6"},

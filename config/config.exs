@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :exgithub, ecto_repos: [Exgithub.Repo]
+
 config :exgithub, Exgithub.Users.Get, github_adapter: Exgithub.Github.Client
 
 # Configures the endpoint

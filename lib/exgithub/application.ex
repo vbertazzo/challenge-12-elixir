@@ -8,6 +8,7 @@ defmodule Exgithub.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      Exgithub.Repo,
       # Start the Telemetry supervisor
       ExgithubWeb.Telemetry,
       # Start the PubSub system

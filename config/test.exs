@@ -1,5 +1,13 @@
 import Config
 
+config :exgithub, Exgithub.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "exgithub_test#{System.get_env("MIX_TEST_PARTITION")}",
+  pool: Ecto.Adapters.SQL.Sandbox,
+  pool_size: 10
+
 config :exgithub, Exgithub.Users.Get, github_adapter: Exgithub.Github.ClientMock
 
 # We don't run a server during test. If one is required,
