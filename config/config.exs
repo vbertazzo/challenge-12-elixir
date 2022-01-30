@@ -13,6 +13,10 @@ config :exgithub, Exgithub.Repo, migration_primary_key: [type: :binary_id]
 
 config :exgithub, Exgithub.Users.Get, github_adapter: Exgithub.Github.Client
 
+config :exgithub, ExgithubWeb.Auth.Guardian,
+  issuer: "exgithub",
+  secret_key: "d2VLv5OIFrtChuF/q6534J7BDKwn+FF/JnjD+AKeISX/F2IZ3zK+4H30s94r3h9z"
+
 # Configures the endpoint
 config :exgithub, ExgithubWeb.Endpoint,
   url: [host: "localhost"],
